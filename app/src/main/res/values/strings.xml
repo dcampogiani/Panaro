@@ -2,4 +2,6 @@
     <string name="app_name">Panaro</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="tap_here">Tap Here</string>
+    <string name="well_done">Well Done</string>
 </resources>
