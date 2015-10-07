@@ -16,6 +16,9 @@ before_script:
 
 script:
     - ./gradlew build
+    - ls
     - mv /home/travis/build/dcampogiani/Panaro/app/build/outputs/apk/app-debug.apk ./app.apk
+    - ls
     - node ./node_modules/awsdevicefarmcli/downloadTests.js --gitHubAccessToken ${gitHubAccessToken} --repoUser ${testRepoUser} --repoName ${testRepoName} --output ${testZipOutput}
+    - ls
     - node ./node_modules/awsdevicefarmcli/scheduleRun.js --AWSAccessKeyId ${AWSAccessKeyId} --AWSSecretAccessKey ${AWSSecretAccessKey} --AWSRegion ${AWSRegion} --AppApk app.apk --TestsZip ${testZipOutput}
