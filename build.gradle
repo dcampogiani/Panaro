@@ -17,3 +17,5 @@ allprojects {
         jcenter()
     }
 }
+
+ext.betaDistributionReleaseNotes = "Release Notes for this build."
