@@ -20,4 +20,4 @@ script:
     - node ./node_modules/awsdevicefarmcli/downloadTests.js --gitHubAccessToken ${gitHubAccessToken} --repoUser ${testRepoUser} --repoName ${testRepoName} --output ${testZipOutput}
     - node ./node_modules/awsdevicefarmcli/scheduleRun.js --AWSAccessKeyId ${AWSAccessKeyId} --AWSSecretAccessKey ${AWSSecretAccessKey} --AWSRegion ${AWSRegion} --AppPath app.apk --TestsZipPath ${testZipOutput}
 
-after_success: gradlew.bat assembleRelease crashlyticsUploadDistributionRelease
+after_success: ./gradlew assembleRelease crashlyticsUploadDistributionRelease
