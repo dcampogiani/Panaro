@@ -23,4 +23,8 @@ script:
 after_success: ./gradlew assembleRelease crashlyticsUploadDistributionRelease
 
 notifications:
-    slack: ${slackToken}
+    slack:
+        rooms:
+          - ${slackToken}
+        on_success: always
+        on_failure: always
