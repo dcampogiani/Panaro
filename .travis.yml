@@ -19,12 +19,12 @@ before_script:
 script:
     - ./gradlew build
     - scripts/generate-changelog.sh
-    - cat CHANGELOG.md
+
+after_success:
+    - ./gradlew assembleRelease crashlyticsUploadDistributionRelease
     - mv /home/travis/build/dcampogiani/Panaro/app/build/outputs/apk/app-release.apk ./app.apk
     - node ./node_modules/awsdevicefarmcli/downloadTests.js --gitHubAccessToken ${gitHubAccessToken} --repoUser ${testRepoUser} --repoName ${testRepoName} --output ${testZipOutput}
     - node ./node_modules/awsdevicefarmcli/scheduleRun.js --AWSAccessKeyId ${AWSAccessKeyId} --AWSSecretAccessKey ${AWSSecretAccessKey} --AWSRegion ${AWSRegion} --AppPath app.apk --TestsZipPath ${testZipOutput}
-
-after_success: ./gradlew assembleRelease crashlyticsUploadDistributionRelease
 
 notifications:
     slack:
