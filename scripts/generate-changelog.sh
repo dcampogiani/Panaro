@@ -1,7 +1,7 @@
 #!/bin/sh
 
 REPO_SLUG = "$TRAVIS_REPO_SLUG"
-IFS='/' read -a repoArray <<< "$REPO_SLUG"
+IFS='/' read -a repoArray <<< "$TRAVIS_REPO_SLUG"
 REPO_OWNER="${repoArray[0]}"
 REPO_NAME="${repoArray[1]}"
 
